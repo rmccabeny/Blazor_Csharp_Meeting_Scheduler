@@ -1,0 +1,26 @@
+﻿@page  "/meetings"
+using Blazor_Csharp_Meeting_Scheduler.Models;
+@inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService;
+
+<h3>Meetings</h3>
+
+// create a table to display the list of meetings
+@if (meetings == null)
+{
+    
+    <p>Loading...</p>
+
+}
+else
+{
+    <ul>
+        @foreach (var meeting in meetings)
+        {
+            <li>meeting.Title</li>
+        }
+    </ul>    
+}
+
+@code {
+
+}

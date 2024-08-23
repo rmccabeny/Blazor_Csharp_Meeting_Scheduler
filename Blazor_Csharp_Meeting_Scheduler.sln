@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Csharp_Meeting_Scheduler", "Blazor_Csharp_Meeting_Scheduler\Blazor_Csharp_Meeting_Scheduler\Blazor_Csharp_Meeting_Scheduler.csproj", "{CE0A41DB-A400-466C-88BD-C23B71D859D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Csharp_Meeting_Scheduler.Client", "Blazor_Csharp_Meeting_Scheduler\Blazor_Csharp_Meeting_Scheduler.Client\Blazor_Csharp_Meeting_Scheduler.Client.csproj", "{888ED87F-F580-437C-B52B-5999AF9B4406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE0A41DB-A400-466C-88BD-C23B71D859D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0A41DB-A400-466C-88BD-C23B71D859D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0A41DB-A400-466C-88BD-C23B71D859D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0A41DB-A400-466C-88BD-C23B71D859D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{888ED87F-F580-437C-B52B-5999AF9B4406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{888ED87F-F580-437C-B52B-5999AF9B4406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{888ED87F-F580-437C-B52B-5999AF9B4406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{888ED87F-F580-437C-B52B-5999AF9B4406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48060D8D-45D0-4F1F-A5C8-41F42200E435}
+	EndGlobalSection
+EndGlobal
