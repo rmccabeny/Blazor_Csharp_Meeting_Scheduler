@@ -5,9 +5,7 @@
         // declare the properties of the Department class
         public int Id { get; set; }
         public required string Name { get; set; }
-        public required string Employee { get; set; }
+        // create list of employees
         public List<Employee> Employees { get; set; } = new List<Employee>();
-
-        
     }
 }

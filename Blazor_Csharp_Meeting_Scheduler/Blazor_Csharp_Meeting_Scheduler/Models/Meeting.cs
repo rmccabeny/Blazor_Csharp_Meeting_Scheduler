@@ -4,12 +4,12 @@
     {
         // establish the properties of the meeting class
         public int Id { get; set; }
-        public required string Title { get; set; }
-        public required string Department { get; set; }
-        public required string Employee { get; set; }
-        public required string Date { get; set; }
-        public required string Time { get; set; }
-        public required string Location { get; set; }
+        public required string Title { get; set; } = string.Empty;
+        public required string Department { get; set; } = string.Empty;
+        public required string Employee { get; set; } = string.Empty;
+        public required string Date { get; set; } = DateTime.Now.ToShortDateString();
+        public required string Time { get; set; } = DateTime.Now.ToShortTimeString();
+        public required string Location { get; set; } = string.Empty;
         
     }
 }

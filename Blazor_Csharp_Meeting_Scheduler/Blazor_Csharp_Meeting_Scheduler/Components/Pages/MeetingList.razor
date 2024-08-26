@@ -1,10 +1,10 @@
 ﻿@page  "/meetings"
-using Blazor_Csharp_Meeting_Scheduler.Models;
+@using Blazor_Csharp_Meeting_Scheduler.Models;
 @inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService;
 
 <h3>Meetings</h3>
 
-// create a table to display the list of meetings
+<!--create a table to display the list of meetings-->
 @if (meetings == null)
 {
     
@@ -22,5 +22,11 @@ else
 }
 
 @code {
+    // construct a list of meetings
+    private IEnumerable<Meeting> meetings = new List<Meeting>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        meetings = await MeetingService.GetMeetingsAsync();
+    }
 }

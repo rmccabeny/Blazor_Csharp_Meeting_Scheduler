@@ -23,14 +23,21 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         public void AddEmployeeToDepartment(int id, Employee employee)
         {
             var department = departments.Find(d => d.Id == id);
-            department?.Employees.Add(employee);
+            if (department != null)
+            {
+                department.Employees.Add(employee);
+            }
         }
 
         // remove an employee from a department
         public void RemoveEmployeeFromDepartment(int id, Employee employee)
         {
             var department = departments.Find(d => d.Id == id);
-            department?.Employees.Remove(employee);
+            if (department != null)
+            {
+                department.Employees.Remove(employee);
+            }
+            
         }
     }
 }
