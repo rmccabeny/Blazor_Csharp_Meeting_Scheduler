@@ -1,8 +1,85 @@
 ﻿@page "/"
+@using Blazor_Csharp_Meeting_Scheduler.Models;
+@inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService;
+@inject Blazor_Csharp_Meeting_Scheduler.Services.EmployeeService EmployeeService;
 
 
 <PageTitle>Meeting Scheduler</PageTitle>
 
 <h1>Weekly Meeting Scheduler</h1>
+
+@if (comboData == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Employee Department</th>
+                <th>Phone Number</th>
+                <th>Meeting Title</th>
+                <th>Meeting Date/Time</th>
+                <th>Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var meeting in comboData)
+            {
+                <tr>
+                    <td>@meeting.EmployeeName</td>
+                    <td>@meeting.EmployeeEmail</td>
+                    <td>@meeting.EmployeeDepartment</td>
+                    <td>@meeting.EmployeePhone</td>
+                    <td>@meeting.MeetingTitle</td>
+                    <td>@meeting.MeetingDate</td>
+                    <td>@meeting.MeetingTime</td>
+                    <td>@meeting.MeetingDepartment</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>    
+}
+
+@code {
+    // construct a list of meetings
+    private List<ComboViewModel> comboData = new List<ComboViewModel>();
+
+    // construct a list of employees
+    protected override async Task OnInitializedAsync()
+    {
+        var employees = await EmployeeService.GetEmployeesAsync();
+        var meetings = await MeetingService.GetMeetingsAsync();
+
+        comboData = new List<ComboViewModel>();
+
+        foreach (var employee in employees)
+        {
+            
+            {
+                comboData.Add(new ComboViewModel
+                {
+                    EmployeeName = employee.EmployeeName,
+                    EmployeeEmail = employee.Email,
+                    EmployeeDepartment = employee.Department,
+                    EmployeePhone = employee.Phone,
+                    MeetingTitle = meeting.Title,
+                    MeetingDate = meeting.Date,
+                    MeetingTime = meeting.Time,
+                    MeetingDepartment = meeting.Department
+                });
+            }
+        }
+    }
+
+
+
+
+
+}
 
 
