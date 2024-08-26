@@ -5,7 +5,15 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
     public class DepartmentService
     {
         // create the list of departments
-        private List<Department> departments = new List<Department>();
+        private readonly List<Department> departments = new List<Department>
+        {
+            new Department { Name = "IT" },
+            new Department { Name = "Sales" },
+            new Department { Name = "Human Resources" },
+            new Department { Name = "Management" },
+            new Department { Name = "Warehouse" }
+
+        };
 
         // get the list of departments
         public List<Department> GetDepartments()

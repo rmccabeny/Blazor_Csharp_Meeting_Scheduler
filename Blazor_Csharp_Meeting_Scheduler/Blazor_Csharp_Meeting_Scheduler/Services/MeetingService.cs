@@ -10,12 +10,12 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         private List<Meeting> meetings = new List<Meeting>();
 
         // get the list of meetings
-        public Task<IEnumerable<Meeting>> GetMeetingsAsync()
+        public async Task<IEnumerable<Meeting>> GetMeetingsAsync()
         {
-            return Task.FromResult<IEnumerable<Meeting>>(meetings);
+            return await Task.FromResult<IEnumerable<Meeting>>(meetings);
         }
             // add a meeting to the list
-            public Task AddMeetingAync(Meeting meeting)
+            public Task AddMeetingAsync(Meeting meeting)
         {
             meetings.Add(meeting);
             return Task.CompletedTask;
@@ -24,7 +24,7 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         // remove a meeting from the list
        public Task RemoveMeetingAsync(int id)
         {
-            var meeting = meetings.FirstOrDefault(m => m.Id == id);
+            var meeting = meetings.FirstOrDefault(m => m.MeetingId == id);
             if (meeting != null)
             {
                 meetings.Remove(meeting);

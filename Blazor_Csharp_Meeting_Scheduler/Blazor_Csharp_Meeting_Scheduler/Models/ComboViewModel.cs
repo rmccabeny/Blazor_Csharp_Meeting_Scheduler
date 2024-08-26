@@ -7,8 +7,7 @@
         public required string EmployeeEmail { get; set; }
         public required string EmployeePhone { get; set; }
         public required string MeetingTitle { get; set; }
-        public required DateTime MeetingDate{ get; set; }
-        public required string MeetingTime { get; set; }
+        public required DateTime MeetingDateTime{ get; set; }
         public required string MeetingDepartment { get; set; }
 
     }

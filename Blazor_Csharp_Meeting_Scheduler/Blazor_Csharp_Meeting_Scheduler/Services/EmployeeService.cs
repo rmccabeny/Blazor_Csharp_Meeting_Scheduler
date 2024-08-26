@@ -7,9 +7,9 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
     {
         private List<Employee> employees = new List<Employee>()
 ;       
-        public List<Employee> GetEmployees()
+        public async Task<List<Employee>> GetEmployeesAsync()
         {
-            return employees;
+            return await Task.FromResult(new List<Employee>());
         }
 
         // add an employee to the list

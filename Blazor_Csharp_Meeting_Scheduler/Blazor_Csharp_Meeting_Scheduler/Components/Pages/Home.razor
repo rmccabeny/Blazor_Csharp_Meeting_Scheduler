@@ -8,6 +8,7 @@
 
 <h1>Weekly Meeting Scheduler</h1>
 
+<!--create the table for the application that is displayed on the homepage-->
 @if (comboData == null)
 {
     <p>Loading...</p>
@@ -35,8 +36,7 @@ else
                     <td>@meeting.EmployeeDepartment</td>
                     <td>@meeting.EmployeePhone</td>
                     <td>@meeting.MeetingTitle</td>
-                    <td>@meeting.MeetingDate</td>
-                    <td>@meeting.MeetingTime</td>
+                    <td>@meeting.MeetingDateTime</td>
                     <td>@meeting.MeetingDepartment</td>
                 </tr>
             }
@@ -55,11 +55,12 @@ else
         var employees = await EmployeeService.GetEmployeesAsync();
         var meetings = await MeetingService.GetMeetingsAsync();
 
+        // create a list of combo data for employees and meetings
         comboData = new List<ComboViewModel>();
 
         foreach (var employee in employees)
         {
-            
+
             {
                 comboData.Add(new ComboViewModel
                 {
@@ -67,11 +68,25 @@ else
                     EmployeeEmail = employee.Email,
                     EmployeeDepartment = employee.Department,
                     EmployeePhone = employee.Phone,
-                    MeetingTitle = meeting.Title,
-                    MeetingDate = meeting.Date,
-                    MeetingTime = meeting.Time,
-                    MeetingDepartment = meeting.Department
+                    MeetingTitle = string.Empty,
+                    MeetingDateTime = DateTime.MinValue,
+
+                    MeetingDepartment = string.Empty
                 });
+            }
+
+            foreach (var meeting in meetings)
+            {
+                comboData.Add(new ComboViewModel
+                    {
+                        EmployeeName = string.Empty,
+                        EmployeeEmail = string.Empty,
+                        EmployeeDepartment = string.Empty,
+                        EmployeePhone = string.Empty,
+                        MeetingTitle = meeting.MeetingTitle,
+                        MeetingDateTime = meeting.MeetingDateTime,
+                        MeetingDepartment = meeting.MeetingDepartment
+                    });    
             }
         }
     }
