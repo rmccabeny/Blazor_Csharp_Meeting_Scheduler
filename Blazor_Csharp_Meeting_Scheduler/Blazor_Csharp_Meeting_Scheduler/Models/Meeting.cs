@@ -7,6 +7,9 @@
         public required string MeetingTitle { get; set; } = string.Empty;
         public required string MeetingDepartment { get; set; } = string.Empty;
         public required string Employee { get; set; } = string.Empty;
+        public required string EmployeeEmail { get; set; } = string.Empty;
+        public required string EmployeePhone { get; set; } = string.Empty;
+        public required string ManagerName { get; set; } = string.Empty;
         public required DateTime MeetingDateTime { get; set; }
         
         

@@ -1,0 +1,79 @@
+﻿@page "/add-meeting"
+@using Blazor_Csharp_Meeting_Scheduler.Models
+@inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService
+@inject Blazor_Csharp_Meeting_Scheduler.Services.DepartmentService DepartmentService
+@inject Blazor_Csharp_Meeting_Scheduler.Services.EmployeeService EmployeeService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Add New Meeting</PageTitle>
+
+<h3>Add New Meeting</h3>
+
+<!-- create a form to add data to the meetings-->
+<EditForm Model="@newMeeting" OnValidSumite="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label>Meeting ID:</label>
+        <InputNumber TValue="int">@bind-Value="newMeeting.MeetingId" class="form-control"</InputNumber>
+    </div>
+    <div>
+        <label>Department Name:</label>
+        <InputSelect @bind-Value="newMeeting.MeetingDepartment" class="form-control">
+            @foreach (var department in departments)
+            {
+                <option value="@department.Name">@department.Name</option>
+            }
+        </InputSelect>
+    </div>
+    <div>
+        <label>Employee Name:</label>
+        <InputSelect @bind-Value="newMeeting.Employee" class="form-control">
+            @foreach (var employee in employees)
+            {
+                <option value="@employee.EmployeeName">@employee.EmployeeName</option>
+            }
+        </InputSelect>
+    </div>
+    <div>
+        <label>Email:</label>
+        <InputText @bind-Value="newMeeting.EmployeeEmail" class="form-control" />
+    </div>
+    <div>
+        <label>Phone:</label>
+        <InputText @bind-Value="newMeeting.EmployeePhone" class="form-control" />
+    </div>
+    <div>
+        <label>Manager Name:</label>
+        <InputText @bind-Value="newMeeting.ManagerName" class="form-control" readonly />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+
+@code {
+    //  constructor to create a new meeting
+    private Meeting newMeeting = new Meeting();
+    private List<Department> departments = new List<Department>();
+    private List<Employee> employees = new List<Employee>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        departments = await DepartmentService.GetDepartmentsAsync();
+        employees = await EmployeeService.GetEmployeesAsync();
+    }
+
+    private void OnDepartmentChange()
+    {
+        var selectedDepartment = e.Value.ToString();
+        var manager = employees.FirstOrDefault(employees => employee.Department == selectedDepartment && emp.IsManager);
+        newMeeting.ManagerName = manager?.EmployeeName ?? "No Manager";
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        await MeetingService.AddMeetingAsync(newMeeting);
+        Navigation.NavigateTo("/");
+    }
+}

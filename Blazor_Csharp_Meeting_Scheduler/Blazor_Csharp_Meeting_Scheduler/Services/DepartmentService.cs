@@ -16,9 +16,9 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         };
 
         // get the list of departments
-        public List<Department> GetDepartments()
+        public  Task <List<Department>> GetDepartmentsAsync()
         {
-            return departments;
+            return Task.FromResult(departments);
         }
 
         // add a department to the list
