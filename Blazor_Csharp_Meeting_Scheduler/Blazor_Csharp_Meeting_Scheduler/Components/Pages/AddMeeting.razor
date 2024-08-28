@@ -10,13 +10,13 @@
 <h3>Add New Meeting</h3>
 
 <!-- create a form to add data to the meetings-->
-<EditForm Model="@newMeeting" OnValidSumite="@HandleValidSubmit">
+<EditForm Model="@newMeeting" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <div>
         <label>Meeting ID:</label>
-        <InputNumber TValue="int">@bind-Value="newMeeting.MeetingId" class="form-control"</InputNumber>
+        <InputNumber TValue="int" @bind-Value="newMeeting.MeetingId" class="form-control" />
     </div>
     <div>
         <label>Department Name:</label>
@@ -54,7 +54,18 @@
 
 @code {
     //  constructor to create a new meeting
-    private Meeting newMeeting = new Meeting();
+    private Meeting newMeeting = new Meeting
+        {
+            MeetingId = 0,
+            MeetingTitle = string.Empty,
+            MeetingDepartment = string.Empty,
+            Employee = string.Empty,
+            EmployeeEmail = string.Empty,
+            EmployeePhone = string.Empty,
+            ManagerName = string.Empty,
+            MeetingDateTime = DateTime.Now
+        };
+
     private List<Department> departments = new List<Department>();
     private List<Employee> employees = new List<Employee>();
 
@@ -64,16 +75,16 @@
         employees = await EmployeeService.GetEmployeesAsync();
     }
 
-    private void OnDepartmentChange()
+    private void OnDepartmentChange(ChangeEventArgs e)
     {
-        var selectedDepartment = e.Value.ToString();
-        var manager = employees.FirstOrDefault(employees => employee.Department == selectedDepartment && emp.IsManager);
+        var selectedDepartment = e.Value?.ToString() ?? string.Empty;
+        var manager = employees.FirstOrDefault(emp => emp.Department == selectedDepartment && emp.IsManager);
         newMeeting.ManagerName = manager?.EmployeeName ?? "No Manager";
     }
 
     private async Task HandleValidSubmit()
     {
         await MeetingService.AddMeetingAsync(newMeeting);
-        Navigation.NavigateTo("/");
+        NavigationManager.NavigateTo("/");
     }
 }
