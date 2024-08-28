@@ -1,0 +1,22 @@
+﻿@page "/welcome"
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<h3>Welcome to your weekly meeting scheduler</h3>
+
+<p>Please log in or register to use this application</p>
+
+<button class="btn btn-primary" onclick="Register">Register</button>
+<button class="btn btn-primary" onclick="Login">Login</button>
+@code {
+    private void Register()
+    {
+        NavigationManager.NavigateTo("Identity/Account/Register");
+    }
+
+    private void Login()
+    {
+        NavigationManager.NavigateTo("Identity/Account/Login");
+    }
+}
