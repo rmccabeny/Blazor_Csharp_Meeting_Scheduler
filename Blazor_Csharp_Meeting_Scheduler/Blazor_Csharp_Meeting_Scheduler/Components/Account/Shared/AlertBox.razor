@@ -1,0 +1,24 @@
+﻿
+<!--create a pop box to inform user of authorization requirement-->
+@code {
+    [Parameter]
+    public bool IsVisible { get; set; }
+
+    [Parameter]
+    public EventCallback onClose { get; set; }
+
+    private void CloseAlert()
+    {
+        IsVisible = false;
+        onClose.InvokeAsync();
+    }
+}
+
+<!--determines if the pop up box is displayed or not-->
+@if (IsVisible)
+{
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        Please register or login to use the application.
+        <button type="button" class="btn-close" aria-label="Close" @onclick="CloseAlert">Ok</button>
+    </div>    
+}

@@ -18,7 +18,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<DepartmentService>();
 builder.Services.AddSingleton<EmployeeService>();
 builder.Services.AddSingleton<MeetingService>();
-
+builder.Services.AddSingleton<AppStateService>();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
