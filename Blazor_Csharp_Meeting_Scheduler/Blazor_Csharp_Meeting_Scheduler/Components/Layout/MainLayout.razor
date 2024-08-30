@@ -1,4 +1,6 @@
-﻿@inherits LayoutComponentBase
+﻿@using Blazor_Csharp_Meeting_Scheduler.Services
+@inject AppStateService AppStateService
+@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 
 <div class="page">
@@ -22,3 +24,18 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+@code {
+    // Manage the visibility of the alert box
+    private bool showMessage;
+
+    protected override void OnInitialized()
+    {
+        showMessage = AppStateService.IsFirstLaunch = false;
+    }
+
+    private void HandleCloseAlert()
+    {
+        showMessage = false;    
+    }
+}
