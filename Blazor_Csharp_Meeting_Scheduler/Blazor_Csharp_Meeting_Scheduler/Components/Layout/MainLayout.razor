@@ -1,7 +1,8 @@
 ﻿@using Blazor_Csharp_Meeting_Scheduler.Services
-@inject AppStateService AppStateService
+
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
+@using Blazor_Csharp_Meeting_Scheduler.Components.Account.Shared
 
 <div class="page">
     <div class="sidebar">
@@ -9,15 +10,13 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
+
+
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
@@ -25,17 +24,6 @@
     <a class="dismiss">🗙</a>
 </div>
 
-@code {
-    // Manage the visibility of the alert box
-    private bool showMessage;
 
-    protected override void OnInitialized()
-    {
-        showMessage = AppStateService.IsFirstLaunch = false;
-    }
 
-    private void HandleCloseAlert()
-    {
-        showMessage = false;    
-    }
-}
+
