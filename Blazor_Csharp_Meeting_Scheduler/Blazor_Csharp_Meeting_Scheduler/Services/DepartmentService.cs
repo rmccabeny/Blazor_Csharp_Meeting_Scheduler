@@ -7,11 +7,11 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         // create the list of departments
         private readonly List<Department> departments = new List<Department>
         {
-            new Department { Name = "IT" },
-            new Department { Name = "Sales" },
-            new Department { Name = "Human Resources" },
-            new Department { Name = "Management" },
-            new Department { Name = "Warehouse" }
+            new Department { DepartmentName = "IT" },
+            new Department { DepartmentName = "Sales" },
+            new Department { DepartmentName = "Human Resources" },
+            new Department { DepartmentName = "Management" },
+            new Department { DepartmentName = "Warehouse" }
 
         };
 
@@ -30,7 +30,7 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         // add an employee to a department
         public void AddEmployeeToDepartment(int id, Employee employee)
         {
-            var department = departments.Find(d => d.Id == id);
+            var department = departments.Find(d => d.DepartmentId == id);
             if (department != null)
             {
                 department.Employees.Add(employee);
@@ -40,7 +40,7 @@ namespace Blazor_Csharp_Meeting_Scheduler.Services
         // remove an employee from a department
         public void RemoveEmployeeFromDepartment(int id, Employee employee)
         {
-            var department = departments.Find(d => d.Id == id);
+            var department = departments.Find(d => d.DepartmentId == id);
             if (department != null)
             {
                 department.Employees.Remove(employee);
