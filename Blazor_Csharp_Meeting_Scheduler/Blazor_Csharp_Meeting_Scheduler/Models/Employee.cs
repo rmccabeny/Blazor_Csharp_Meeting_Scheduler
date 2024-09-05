@@ -6,8 +6,8 @@
         public int EmployeeId { get; set; }
         public required string EmployeeName { get; set; }
         public required string DepartmentName { get; set; }
-        public required string Email { get; set; }
-        public required string Phone { get; set; }
+        public required string EmployeeEmail { get; set; }
+        public required string EmployeePhone { get; set; }
         public bool IsManager { get; set; }
 
     }
