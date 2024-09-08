@@ -9,6 +9,7 @@
         public required string EmployeeEmail { get; set; }
         public required string EmployeePhone { get; set; }
         public bool IsManager { get; set; }
+        public Department? Department { get; set; }
 
     }
 }

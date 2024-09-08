@@ -2,6 +2,7 @@
 @using Blazor_Csharp_Meeting_Scheduler.Models;
 @inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService;
 @inject Blazor_Csharp_Meeting_Scheduler.Services.EmployeeService EmployeeService;
+@inject Blazor_Csharp_Meeting_Scheduler.Services.DepartmentService DepartmentService;
 @inject NavigationManager NavigationManager;
 
 <PageTitle>Meeting Scheduler</PageTitle>
@@ -45,10 +46,22 @@ else
     </table>    
 }
 
+<AuthorizeView>
+    <Authorized>
+        <div style="position: fixed; bottom: 10px; left: 17em;">
+            <button class="btn btn-primary" @onclick="NavigateToAddMeeting">Add Meeting</button>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
 @code {
     // construct a list of meetings
     private List<ComboViewModel> comboData = new List<ComboViewModel>();
 
+    private void NavigateToAddMeeting()
+    {
+        NavigationManager.NavigateTo("/add-meeting");
+    }
     // construct a list of employees
     protected override async Task OnInitializedAsync()
     {
@@ -65,9 +78,9 @@ else
                 comboData.Add(new ComboViewModel
                 {
                     EmployeeName = employee.EmployeeName,
-                    EmployeeEmail = employee.Email,
-                    EmployeeDepartment = employee.Department,
-                    EmployeePhone = employee.Phone,
+                    EmployeeEmail = employee.EmployeeEmail,
+                    EmployeeDepartment = employee.DepartmentName,
+                    EmployeePhone = employee.EmployeePhone,
                     MeetingTitle = string.Empty,
                     MeetingDateTime = DateTime.MinValue,
 
@@ -85,11 +98,14 @@ else
                         EmployeePhone = string.Empty,
                         MeetingTitle = meeting.MeetingTitle,
                         MeetingDateTime = meeting.MeetingDateTime,
-                        MeetingDepartment = meeting.MeetingDepartment
+                        MeetingDepartment = meeting.DepartmentName
                     });    
             }
         }
+
     }
+
+    
 
 
 
