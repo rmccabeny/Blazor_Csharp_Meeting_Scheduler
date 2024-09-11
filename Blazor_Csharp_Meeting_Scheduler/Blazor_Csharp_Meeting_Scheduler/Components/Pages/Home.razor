@@ -52,6 +52,9 @@ else
             <button class="btn btn-primary" @onclick="NavigateToAddMeeting">Add Meeting</button>
         </div>
     </Authorized>
+    <NotAuthorized>
+        <p>You must be authorized to add a meeting.</p>
+    </NotAuthorized>
 </AuthorizeView>
 
 @code {
