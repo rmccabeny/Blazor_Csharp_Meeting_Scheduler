@@ -3,7 +3,7 @@
 @inject Blazor_Csharp_Meeting_Scheduler.Services.MeetingService MeetingService;
 @inject Blazor_Csharp_Meeting_Scheduler.Services.EmployeeService EmployeeService;
 @inject Blazor_Csharp_Meeting_Scheduler.Services.DepartmentService DepartmentService;
-@inject NavigationManager NavigationManager;
+@inject NavigationManager NavigationManager
 
 <PageTitle>Meeting Scheduler</PageTitle>
 <br />
@@ -61,6 +61,7 @@ else
     // construct a list of meetings
     private List<ComboViewModel> comboData = new List<ComboViewModel>();
 
+    // navigate to the add-meeting page
     private void NavigateToAddMeeting()
     {
         NavigationManager.NavigateTo("/add-meeting");
@@ -105,6 +106,7 @@ else
                     });    
             }
         }
+
 
     }
 

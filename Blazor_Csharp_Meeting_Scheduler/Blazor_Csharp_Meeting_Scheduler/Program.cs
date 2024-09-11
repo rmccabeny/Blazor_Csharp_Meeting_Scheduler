@@ -15,9 +15,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 // register the services for the application
-builder.Services.AddSingleton<DepartmentService>();
-builder.Services.AddSingleton<EmployeeService>();
-builder.Services.AddSingleton<MeetingService>();
+builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<EmployeeService>();
+builder.Services.AddScoped<MeetingService>();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();

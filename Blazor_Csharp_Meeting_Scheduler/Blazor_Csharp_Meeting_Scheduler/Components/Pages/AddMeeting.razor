@@ -19,6 +19,10 @@
         <InputNumber TValue="int" @bind-Value="newMeeting.MeetingId" class="form-control" />
     </div>
     <div>
+        <label>Department Id:</label>
+        <InputNumber TValue="int" @bind-Value="newMeeting.DepartmentId" class="form-control" />
+    </div>
+    <div>
         <label>Department Name:</label>
         <InputSelect @bind-Value="newMeeting.DepartmentName" class="form-control" @onchange="OnDepartmentChange">
             @foreach (var department in departments)
@@ -55,16 +59,17 @@
 @code {
     //  constructor to create a new meeting
     private Meeting newMeeting = new Meeting
-        {
-            MeetingId = 0,
-            MeetingTitle = string.Empty,
-            DepartmentName = string.Empty,
-            EmployeeName = string.Empty,
-            EmployeeEmail = string.Empty,
-            EmployeePhone = string.Empty,
-            ManagerName = string.Empty,
-            MeetingDateTime = DateTime.Now
-        };
+    {
+        MeetingId = 0,
+        MeetingTitle = string.Empty,
+        DepartmentId = 0,
+        DepartmentName = string.Empty,
+        EmployeeName = string.Empty,
+        EmployeeEmail = string.Empty,
+        EmployeePhone = string.Empty,
+        ManagerName = string.Empty,
+        MeetingDateTime = DateTime.Now
+    };
 
     private List<Department> departments = new List<Department>();
     private List<Employee> employees = new List<Employee>();

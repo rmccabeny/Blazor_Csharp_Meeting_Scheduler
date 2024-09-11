@@ -5,6 +5,7 @@
         // establish the properties of the meeting class
         public int MeetingId { get; set; }
         public required string MeetingTitle { get; set; } = string.Empty;
+        public int DepartmentId { get; set; }
         public required string DepartmentName { get; set; } = string.Empty;
         public required string EmployeeName { get; set; } = string.Empty;
         public required string EmployeeEmail { get; set; } = string.Empty;
