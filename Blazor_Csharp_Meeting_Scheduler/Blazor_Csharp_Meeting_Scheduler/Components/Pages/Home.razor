@@ -19,11 +19,10 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Meeting Id</th>
                 <th>Employee Name</th>
-                <th>Employee Email</th>
-                <th>Employee Department</th>
+                <th>Employee Email</th>          
                 <th>Phone Number</th>
-                <th>Meeting Title</th>
                 <th>Meeting Date/Time</th>
                 <th>Department Name</th>
             </tr>
@@ -81,6 +80,7 @@ else
             {
                 comboData.Add(new ComboViewModel
                 {
+                    
                     EmployeeName = employee.EmployeeName,
                     EmployeeEmail = employee.EmployeeEmail,
                     EmployeeDepartment = employee.DepartmentName,
@@ -96,6 +96,7 @@ else
             {
                 comboData.Add(new ComboViewModel
                     {
+                        
                         EmployeeName = string.Empty,
                         EmployeeEmail = string.Empty,
                         EmployeeDepartment = string.Empty,
