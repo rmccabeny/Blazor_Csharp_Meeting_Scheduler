@@ -76,35 +76,28 @@ else
         // create a list of combo data for employees and meetings
         comboData = new List<ComboViewModel>();
 
-        foreach (var employee in employees)
+        foreach (var meeting in meetings)
         {
-
+            var employee = employees.FirstOrDefault(e => e.EmployeeId == meeting.EmployeeId);
+            if (employee != null)
             {
-                comboData.Add(new ComboViewModel
-                {
-                    
-                    EmployeeName = employee.EmployeeName,
-                    EmployeeEmail = employee.EmployeeEmail,
-                    DepartmentName = employee.DepartmentName,
-                    EmployeePhone = employee.EmployeePhone,
-                    MeetingTitle = string.Empty,
-                    MeetingDateTime = DateTime.MinValue,
-                });
-            }
 
-            foreach (var meeting in meetings)
-            {
                 comboData.Add(new ComboViewModel
                     {
-                        
+
+                        EmployeeId = employee.EmployeeId,
                         EmployeeName = string.Empty,
                         EmployeeEmail = string.Empty,
                         EmployeePhone = string.Empty,
+                        MeetingId = meeting.MeetingId,
                         MeetingTitle = meeting.MeetingTitle,
                         MeetingDateTime = meeting.MeetingDateTime,
                         DepartmentName = meeting.DepartmentName
-                    });    
+                    });
             }
+
+
+
         }
 
 

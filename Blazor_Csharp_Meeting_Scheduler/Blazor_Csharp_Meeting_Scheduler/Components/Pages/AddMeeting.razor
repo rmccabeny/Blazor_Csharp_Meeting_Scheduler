@@ -11,21 +11,21 @@
 <h3>Add New Meeting</h3>
 
 <!-- create a form to add data to the meetings-->
-<EditForm Model="@newMeeting" OnValidSubmit="@HandleValidSubmit">
+<EditForm Model="@newMeeting" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <div>
         <label for="MeetingId">Meeting ID:</label>
-        <InputNumber TValue="int" @bind-Value="newMeeting.MeetingId" class="form-control" />
+        <InputNumber id="MeetingId" TValue="int" @bind-Value="newMeeting.MeetingId" class="form-control" />
     </div>
     <div>
         <label for="DepartmentId">Department Id:</label>
-        <InputNumber TValue="int" @bind-Value="newMeeting.DepartmentId" class="form-control" />
+        <InputNumber id="DepartmentId" TValue="int" @bind-Value="newMeeting.DepartmentId" class="form-control" />
     </div>
     <div>
         <label for="DepartmentName">Department Name:</label>
-        <InputSelect @bind-Value="newMeeting.DepartmentName" class="form-control" @onchange="OnDepartmentChange">
+        <InputSelect id="DepartmentName" @bind-Value="newMeeting.DepartmentName" class="form-control" @onchange="OnDepartmentChange">
             @foreach (var department in departments)
             {
                 <option value="@department.DepartmentName">@department.DepartmentName</option>
@@ -34,7 +34,7 @@
     </div>
     <div>
         <label for="EmployeeName">Employee Name:</label>
-        <InputText @bind-Value="newMeeting.EmployeeName" class="form-control">
+        <InputText id="EmployeeName" @bind-Value="newMeeting.EmployeeName" class="form-control">
             @foreach (var employee in employees)
             {
                 <option value="@employee.EmployeeName">@employee.EmployeeName</option>
@@ -43,15 +43,15 @@
     </div>
     <div>
         <label for="EmployeeEmail">Employee Email:</label>
-        <InputText @bind-Value="newMeeting.EmployeeEmail" class="form-control" />
+        <InputText id="EmployeeEmail" @bind-Value="newMeeting.EmployeeEmail" class="form-control" />
     </div>
     <div>
         <label for="EmployeePhone">Phone:</label>
-        <InputText @bind-Value="newMeeting.EmployeePhone" class="form-control" />
+        <InputText id="EmployeePhone" @bind-Value="newMeeting.EmployeePhone" class="form-control" />
     </div>
     <div>
         <label for="ManagerName">Manager Name:</label>
-        <InputText @bind-Value="newMeeting.ManagerName" class="form-control" readonly />
+        <InputText id="ManagerName" @bind-Value="newMeeting.ManagerName" class="form-control" readonly />
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Submit</button>
