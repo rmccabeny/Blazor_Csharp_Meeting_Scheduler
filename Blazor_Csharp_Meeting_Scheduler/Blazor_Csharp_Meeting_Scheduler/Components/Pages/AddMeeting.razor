@@ -16,15 +16,15 @@
     <ValidationSummary />
 
     <div>
-        <label>Meeting ID:</label>
+        <label for="MeetingId">Meeting ID:</label>
         <InputNumber TValue="int" @bind-Value="newMeeting.MeetingId" class="form-control" />
     </div>
     <div>
-        <label>Department Id:</label>
+        <label for="DepartmentId">Department Id:</label>
         <InputNumber TValue="int" @bind-Value="newMeeting.DepartmentId" class="form-control" />
     </div>
     <div>
-        <label>Department Name:</label>
+        <label for="DepartmentName">Department Name:</label>
         <InputSelect @bind-Value="newMeeting.DepartmentName" class="form-control" @onchange="OnDepartmentChange">
             @foreach (var department in departments)
             {
@@ -33,26 +33,27 @@
         </InputSelect>
     </div>
     <div>
-        <label>Employee Name:</label>
-        <InputSelect @bind-Value="newMeeting.EmployeeName" class="form-control">
+        <label for="EmployeeName">Employee Name:</label>
+        <InputText @bind-Value="newMeeting.EmployeeName" class="form-control">
             @foreach (var employee in employees)
             {
                 <option value="@employee.EmployeeName">@employee.EmployeeName</option>
             }
-        </InputSelect>
+        </InputText>
     </div>
     <div>
-        <label>Employee Email:</label>
+        <label for="EmployeeEmail">Employee Email:</label>
         <InputText @bind-Value="newMeeting.EmployeeEmail" class="form-control" />
     </div>
     <div>
-        <label>Phone:</label>
+        <label for="EmployeePhone">Phone:</label>
         <InputText @bind-Value="newMeeting.EmployeePhone" class="form-control" />
     </div>
     <div>
-        <label>Manager Name:</label>
+        <label for="ManagerName">Manager Name:</label>
         <InputText @bind-Value="newMeeting.ManagerName" class="form-control" readonly />
     </div>
+    <br />
     <button type="submit" class="btn btn-primary">Submit</button>
 </EditForm>
 
@@ -61,11 +62,11 @@
     //  constructor to create a new meeting
     private Meeting newMeeting = new Meeting
     {
-        MeetingId = 0,
+        MeetingId = 100,
         MeetingTitle = string.Empty,
-        DepartmentId = 0,
+        DepartmentId = 300,
         DepartmentName = string.Empty,
-        EmployeeId = 0,
+        EmployeeId = 200,
         EmployeeName = string.Empty,
         EmployeeEmail = string.Empty,
         EmployeePhone = string.Empty,

@@ -36,11 +36,10 @@ else
                 <tr>
                     <td>@meeting.EmployeeName</td>
                     <td>@meeting.EmployeeEmail</td>
-                    <td>@meeting.EmployeeDepartment</td>
+                    <td>@meeting.DepartmentName</td>
                     <td>@meeting.EmployeePhone</td>
                     <td>@meeting.MeetingTitle</td>
                     <td>@meeting.MeetingDateTime</td>
-                    <td>@meeting.MeetingDepartment</td>
                 </tr>
             }
         </tbody>
@@ -86,12 +85,10 @@ else
                     
                     EmployeeName = employee.EmployeeName,
                     EmployeeEmail = employee.EmployeeEmail,
-                    EmployeeDepartment = employee.DepartmentName,
+                    DepartmentName = employee.DepartmentName,
                     EmployeePhone = employee.EmployeePhone,
                     MeetingTitle = string.Empty,
                     MeetingDateTime = DateTime.MinValue,
-
-                    MeetingDepartment = string.Empty
                 });
             }
 
@@ -102,11 +99,10 @@ else
                         
                         EmployeeName = string.Empty,
                         EmployeeEmail = string.Empty,
-                        EmployeeDepartment = string.Empty,
                         EmployeePhone = string.Empty,
                         MeetingTitle = meeting.MeetingTitle,
                         MeetingDateTime = meeting.MeetingDateTime,
-                        MeetingDepartment = meeting.DepartmentName
+                        DepartmentName = meeting.DepartmentName
                     });    
             }
         }
