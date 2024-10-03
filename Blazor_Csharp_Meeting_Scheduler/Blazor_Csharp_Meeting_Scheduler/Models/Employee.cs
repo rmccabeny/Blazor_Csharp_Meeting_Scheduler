@@ -1,6 +1,6 @@
 ﻿namespace Blazor_Csharp_Meeting_Scheduler.Models
 {
-    public class Employee
+    public record Employee
     {
         // establish the properties of the employee class
         public int EmployeeId { get; set; }

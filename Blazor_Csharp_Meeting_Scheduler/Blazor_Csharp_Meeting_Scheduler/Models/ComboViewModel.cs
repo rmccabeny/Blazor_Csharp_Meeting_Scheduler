@@ -1,6 +1,6 @@
 ﻿namespace Blazor_Csharp_Meeting_Scheduler.Models
 {
-    public class ComboViewModel
+    public record ComboViewModel
     {
         public int EmployeeId { get; set; }
         public required string EmployeeName { get; set; }

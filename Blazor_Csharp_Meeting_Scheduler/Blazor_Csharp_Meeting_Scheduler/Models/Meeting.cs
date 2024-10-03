@@ -1,6 +1,6 @@
 ﻿namespace Blazor_Csharp_Meeting_Scheduler.Models
 {
-    public class Meeting
+    public record Meeting
     {
         // establish the properties of the meeting class
         public int MeetingId { get; set; }
